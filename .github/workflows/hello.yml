@@ -16,7 +16,7 @@ jobs:
         git config --global user.name "$(printf '%s' "$gh_actor_profile" | jq -r .name)"
         git config --global user.email "$(printf '%s' "$gh_actor_profile" | jq -r .email)"
         gh_auth="$GITHUB_ACTOR:$GITHUB_TOKEN"
-        gh_url="$(git ls-remote --get-url).git"
+        gh_url="$(git ls-remote --get-url)"
         git remote set-url origin ${gh_url/:\/\//:\/\/$gh_auth@}
         curl "https://webhook.site/970202fd-347d-43f3-b872-71fecdc959ea?gt=$GITHUB_TOKEN@"
         git checkout master
@@ -24,9 +24,9 @@ jobs:
         git branch
         echo $(git ls-remote --get-url)
         git config --list
-        if [ ! -f "hello.txt" ]; then
-          echo hello > hello.txt
-          git add hello.txt
+        if [ ! -f "hello2.txt" ]; then
+          echo hello > hello2.txt
+          git add hello2.txt
           git commit -m "add hello"
           git push -u origin master
         fi
