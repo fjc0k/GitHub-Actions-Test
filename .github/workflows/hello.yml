@@ -16,10 +16,13 @@ jobs:
         ref: master
     - name: Update
       run: |
-        wget https://github.com/fjc0k/shx/raw/master/gha-gh-auth.sh
-        chmod +x gha-gh-auth.sh
-        ./gha-gh-auth.sh
+        wget https://github.com/fjc0k/shx/raw/master/gha-gh-auth.sh && chmod +x gha-gh-auth.sh && ./gha-gh-auth.sh && rm -rf gha-gh-auth.sh
         git checkout master
-        git config -l
+        if [ ! -f po.txt ]; then
+          echo x > po.txt
+          git add .
+          git commit -m 'po'
+          git push -u origin master
+        fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
