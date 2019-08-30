@@ -23,7 +23,7 @@ jobs:
           echo hello > hello.txt
           git add hello.txt
           git commit -m "add hello"
-          git push origin master
+          git push -u origin master
         fi
         chmod +x update.sh
         ./update.sh
