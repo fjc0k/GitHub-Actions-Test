@@ -15,6 +15,7 @@ jobs:
         gh_actor_profile="$(curl -s -H "Authorization: token ${GITHUB_TOKEN}" "https://api.github.com/users/${GITHUB_ACTOR}")"
         git config --global user.name "$(printf '%s' "$gh_actor_profile" | jq -r .name)"
         git config --global user.email "$(printf '%s' "$gh_actor_profile" | jq -r .email)"
+        git branch | grep \* | cut -d ' ' -f2
         gh_url="$(git ls-remote --get-url).git"
         git remote set-url origin ${gh_url/:\/\//:\/\/$GITHUB_TOKEN@}
         echo $(git ls-remote --get-url)
