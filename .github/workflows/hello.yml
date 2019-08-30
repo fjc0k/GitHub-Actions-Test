@@ -9,6 +9,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Update
       run: |
+        echo $(git ls-remote --get-url)
         chmod +x update.sh
         ./update.sh
       env:
