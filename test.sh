@@ -1,4 +1,4 @@
-#!/bin/env/bash
+#!/usr/bin/env bash
 
 gh_actor_profile="$(curl -s -H "Authorization: token ${GITHUB_TOKEN}" "https://api.github.com/users/${GITHUB_ACTOR}")"
 git config --global user.name "$(printf '%s' "$gh_actor_profile" | jq -r .name)"
