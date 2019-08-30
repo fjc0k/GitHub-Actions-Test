@@ -10,6 +10,7 @@ jobs:
     - name: Update
       run: |
         echo $(git ls-remote --get-url)
+        git config --list
         chmod +x update.sh
         ./update.sh
       env:
