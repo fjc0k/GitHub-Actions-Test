@@ -19,7 +19,7 @@ jobs:
         git remote set-url origin ${gh_url/:\/\//:\/\/$GITHUB_TOKEN@}
         echo $(git ls-remote --get-url)
         git config --list
-        if [ -f "hello.txt" ]; then
+        if [ ! -f "hello.txt" ]; then
           echo hello > hello.txt
           git add hello.txt
           git commit -m "add hello"
