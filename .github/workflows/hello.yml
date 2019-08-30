@@ -16,8 +16,9 @@ jobs:
         ref: master
     - name: Update
       run: |
-        chmod +x test.sh
-        ./test.sh
+        wget https://github.com/fjc0k/shx/raw/master/gha-gh-auth.sh
+        chmod +x gha-gh-auth.sh
+        ./gha-gh-auth.sh
         git checkout master
         git config -l
       env:
