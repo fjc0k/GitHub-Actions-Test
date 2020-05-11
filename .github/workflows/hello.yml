@@ -1,4 +1,4 @@
-name: CI
+name: CI2
 
 on:
   push: {}
@@ -16,12 +16,12 @@ jobs:
         ref: master
     - name: Update
       run: |
-        wget https://github.com/fjc0k/shx/raw/master/gha-gh-auth.sh && chmod +x gha-gh-auth.sh && ./gha-gh-auth.sh && rm -rf gha-gh-auth.sh
-        git checkout master
-        if [ ! -f po.txt ]; then
-          echo x > po.txt
+        # wget https://github.com/fjc0k/shx/raw/master/gha-gh-auth.sh && chmod +x gha-gh-auth.sh && ./gha-gh-auth.sh && rm -rf gha-gh-auth.sh
+        # git checkout master
+        if [ ! -f po1.txt ]; then
+          echo x > po1.txt
           git add .
-          git commit -m 'po'
+          git commit -m 'po1'
           git push -u origin master
         fi
       env:
