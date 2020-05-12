@@ -10,22 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        ref: master
-    - name: Update
-      run: |
-        # wget https://github.com/fjc0k/shx/raw/master/gha-gh-auth.sh && chmod +x gha-gh-auth.sh && ./gha-gh-auth.sh && rm -rf gha-gh-auth.sh
-        # printenv
-        # git checkout master
-        # git config --global user.email "you@example.com"
-        # git config --global user.name "fjc0k"
-        git config user.name "GitHub Actions"
-        git config user.email "actions@users.noreply.github.com"
-        if [ ! -f po1.txt ]; then
-          echo x > po1.txt
+    - uses: actions/checkout@v2
+    - run: |
+        git config user.name "YTT Bot"
+        git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+        if [ ! -f po13.txt ]; then
+          echo x > po13.txt
           git add .
-          git commit -m 'po1'
+          git commit -m 'po13'
           git push -u origin master
         fi
