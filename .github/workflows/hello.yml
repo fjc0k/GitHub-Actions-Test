@@ -13,7 +13,7 @@ jobs:
     - uses: actions/checkout@v2
     - run: |
         git config user.name "YTT Bot"
-        git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+        git config user.email "000-00-9${GITHUB_ACTOR}@users.noreply.github.com"
         if [ ! -f po13.txt ]; then
           echo x > po13.txt
           git add .
