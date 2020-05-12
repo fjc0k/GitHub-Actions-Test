@@ -18,6 +18,8 @@ jobs:
       run: |
         # wget https://github.com/fjc0k/shx/raw/master/gha-gh-auth.sh && chmod +x gha-gh-auth.sh && ./gha-gh-auth.sh && rm -rf gha-gh-auth.sh
         # git checkout master
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
         if [ ! -f po1.txt ]; then
           echo x > po1.txt
           git add .
