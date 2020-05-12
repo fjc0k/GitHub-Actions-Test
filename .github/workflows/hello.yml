@@ -12,11 +12,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: |
-        git config user.name "YTT Bot"
-        git config user.email "000-00-9${GITHUB_ACTOR}@users.noreply.github.com"
-        if [ ! -f po134.txt ]; then
-          echo x > po134.txt
+        git config user.name "Bot"
+        git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+        if [ ! -f po1344.txt ]; then
+          echo x > po1344.txt
           git add .
-          git commit -m 'po134'
+          git commit -m 'po1344'
           git push -u origin master
         fi
