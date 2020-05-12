@@ -11,21 +11,19 @@ jobs:
     
     steps:
     - name: Checkout
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
       with:
         ref: master
     - name: Update
       run: |
         # wget https://github.com/fjc0k/shx/raw/master/gha-gh-auth.sh && chmod +x gha-gh-auth.sh && ./gha-gh-auth.sh && rm -rf gha-gh-auth.sh
-        printenv
-        git checkout master
-        git config --global user.email "you@example.com"
-        git config --global user.name "fjc0k"
+        # printenv
+        # git checkout master
+        # git config --global user.email "you@example.com"
+        # git config --global user.name "fjc0k"
         if [ ! -f po1.txt ]; then
           echo x > po1.txt
           git add .
           git commit -m 'po1'
           git push -u origin master
         fi
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
