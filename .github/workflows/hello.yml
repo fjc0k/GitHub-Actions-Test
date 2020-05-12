@@ -21,6 +21,8 @@ jobs:
         # git checkout master
         # git config --global user.email "you@example.com"
         # git config --global user.name "fjc0k"
+        git config user.name "GitHub Actions"
+        git config user.email "actions@users.noreply.github.com"
         if [ ! -f po1.txt ]; then
           echo x > po1.txt
           git add .
